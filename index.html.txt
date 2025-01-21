@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Booking Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Home Page -->
+  <header>
+    <div class="hero-banner">
+      <h1>Explore the World</h1>
+      <p>Discover amazing destinations and book your dream trip today!</p>
+    </div>
+  </header>
+
+  <!-- Destinations Section -->
+  <section id="destinations">
+    <h2>Popular Destinations</h2>
+    <div class="filters">
+      <label for="price-filter">Price:</label>
+      <select id="price-filter">
+        <option value="all">All</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <label for="type-filter">Type:</label>
+      <select id="type-filter">
+        <option value="all">All</option>
+        <option value="beach">Beach</option>
+        <option value="mountain">Mountain</option>
+        <option value="city">City</option>
+      </select>
+    </div>
+    <div class="destination-list">
+      <div class="destination" data-price="low" data-type="beach">
+        <h3>Bali</h3>
+        <p>Price: Low | Type: Beach</p>
+      </div>
+      <div class="destination" data-price="medium" data-type="city">
+        <h3>Paris</h3>
+        <p>Price: Medium | Type: City</p>
+      </div>
+      <div class="destination" data-price="high" data-type="mountain">
+        <h3>Swiss Alps</h3>
+        <p>Price: High | Type: Mountain</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section id="booking">
+    <h2>Book Your Trip</h2>
+    <form id="booking-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="destination">Destination:</label>
+      <select id="destination" required>
+        <option value="bali">Bali</option>
+        <option value="paris">Paris</option>
+        <option value="swiss">Swiss Alps</option>
+      </select>
+
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <div id="confirmation-popup" class="hidden">
+    <p>Thank you for booking with us! We will contact you shortly.</p>
+    <button id="close-popup">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

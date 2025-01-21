@@ -1,0 +1,40 @@
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+  // Filtering functionality
+  const priceFilter = document.getElementById('price-filter');
+  const typeFilter = document.getElementById('type-filter');
+  const destinations = document.querySelectorAll('.destination');
+
+  function filterDestinations() {
+    const priceValue = priceFilter.value;
+    const typeValue = typeFilter.value;
+
+    destinations.forEach(destination => {
+      const matchesPrice = priceValue === 'all' || destination.dataset.price === priceValue;
+      const matchesType = typeValue === 'all' || destination.dataset.type === typeValue;
+
+      if (matchesPrice && matchesType) {
+        destination.style.display = '';
+      } else {
+        destination.style.display = 'none';
+      }
+    });
+  }
+
+  priceFilter.addEventListener('change', filterDestinations);
+  typeFilter.addEventListener('change', filterDestinations);
+
+  // Booking functionality
+  const bookingForm = document.getElementById('booking-form');
+  const popup = document.getElementById('confirmation-popup');
+  const closePopup = document.getElementById('close-popup');
+
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    popup.classList.remove('hidden');
+  });
+
+  closePopup.addEventListener('click', () => {
+    popup.classList.add('hidden');
+  });
+});
